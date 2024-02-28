@@ -1,47 +1,59 @@
 import axios from "axios";
-import {useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import ItemManager from "./ItemManager";
 
-function ItemGet() {
 
-const [name, setName] = useState("")
-const [price, setPrice] = useState("")
-const [quantity, setQuantity] = useState("")
-const [items, setItems] = useState([])
+function ItemGet(props) {
 
-    function getItems() {
-        axios.get("http://localhost:8081/item/get")
-        .then((response)=>{setItems(response.data)})
-        .catch(console.log)
-    }
-    
-    useEffect(()=>{getItems()},[])
-    
-
-
+    const [items, setItems] = useState([]);
     const itemList = []
 
+    function getItems(props) {
+
+
+
+        axios.get("http://localhost:8081/item/get")
+            .then(response => {
+                console.log("Response:", response);
+                setItems(response.data);
+            })
+            .catch(error => console.error(error));
+    }
+    useEffect(getItems, []);
+
+
+
+
     for (const item of items) {
-        console.log("Items:", item);
+        console.log("Items:", props.item);
         itemList.push(
             <ItemManager
-                key={item.name + "" + item.quantity}
+                key={item.id + "" + item.name}
                 name={item.name}
                 price={item.price}
                 quantity={item.quantity}
-                id={item.id}
-
             />
         )
-
     }
 
-    return (  
-
+    return (
         <div>
-        <h1>Item Get</h1>
-    </div> );
-
+            <br />
+            <table className="table table-bordered, style=">
+                <thead className="table-dark">
+                    <tr>  
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>                      
+                    </tr>
+                </thead>
+                <tbody className="table-group-divider">
+             {itemList}
+                </tbody>
+            </table>
+        </div>
+    );
 }
 
 export default ItemGet;

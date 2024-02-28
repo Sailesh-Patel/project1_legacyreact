@@ -5,15 +5,15 @@ import ItemGet from './components/Items/ItemGet';
 
 function App() {
   return (
-    <div>
+
     <div>
       <h1>Main</h1>
-    </div>
-    <div>
-{/* <ItemManager /> */}
-{/* <ItemCreate /> */}
+
+
+
 <ItemCreate />
-    </div>
+<ItemGet />
+
     </div>
   );
 }

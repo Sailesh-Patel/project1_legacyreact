@@ -6,6 +6,7 @@ function ItemManager(props) {
     
     return (   
         <tr>
+            <td>{props.id}</td>
             <td>{props.name}</td>
             <td>{props.price}</td>
             <td>{props.quantity}</td>
@@ -14,6 +15,7 @@ function ItemManager(props) {
     }
 
     ItemManager.propTypes = {
+        id: PropTypes.number,
         name: PropTypes.string,
         price: PropTypes.string,
         quantity: PropTypes.string,
