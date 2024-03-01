@@ -1,18 +1,30 @@
 import './App.css';
-import ItemManager from './components/Items/ItemManager';
-import ItemCreate from './components/Items/ItemCreate';
-import ItemGet from './components/Items/ItemGet';
+import { Routes, Route, Router, Link } from "react-router-dom"
+import 'bootstrap/dist/css/bootstrap.css';
+import Routing from './Routing';
+import HomePage from './RoutingPages/HomePage';
+
+import CartPage from './RoutingPages/CartPage';
+import ItemsPage from './RoutingPages/ItemsPage';
+
+
 
 function App() {
   return (
-
     <div>
-      <h1>Main</h1>
+<Routing />
+<div className="container">
+
+<Routes>
+<Route path="/" element={<HomePage />}></Route>
+<Route path="/ItemsPage" element={<ItemsPage />}></Route>
+<Route path="/CartPage" element={<CartPage />}></Route>
+</Routes>
+
+</div>
 
 
-
-<ItemCreate />
-<ItemGet />
+<h1>App.js</h1>
 
     </div>
   );

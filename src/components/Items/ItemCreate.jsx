@@ -8,49 +8,49 @@ function ItemCreate(props) {
     const [price, setPrice] = useState("")
     const [quantity, setQuantity] = useState("")
 
+    function createItem() {
 
-    return (<form onSubmit={e => {
-                e.preventDefault();
                 axios.post("http://localhost:8081/item/create",
                 { name, price, quantity })
-                .then(response => {
-                    console.log(response);
-                    setName("");
-                    setPrice("");
-                    setQuantity("");
-
+                .then(response => {console.log(response);
+                setName("");
+                setPrice("");
+                setQuantity();
                 }).catch(err => console.error(err))
-        }}>
+    }
+
+
+    return (<form onSubmit={createItem}>
                     <label htmlFor="Name">Name</label>
-                    <br /><input className="form-control border-3 border-primary rounded" style={{ width: "250px", height: "31px" }}
+                    <br /><input className="form-control border-2 border-secondary rounded" style={{ width: "250px", height: "31px" }}
                         id="Name"
                         firstname="name"
                         type="text"
                         value={name}
-                        onChange={e => setName(e.target.value)}
+                        onChange={event => setName(event.target.value)}
                         required
                     />
                     <br /><label htmlFor="price">Price</label>
-                    <br /><input className="form-control border-3 border-primary rounded" style={{ width: "250px", height: "31px" }}
+                    <br /><input className="form-control border-2 border-secondary rounded" style={{ width: "250px", height: "31px" }}
                         id="price"
                         lastname="price"
-                        type="text"
+                        type="double"
                         value={price}
-                        onChange={e => setPrice(e.target.value)}
+                        onChange={event => setPrice(event.target.value)}
                         required
                     />
 
                     <br /><label htmlFor="quantity">Quantity</label>
-                    <br /><input className="form-control border-3 border-primary rounded" style={{ width: "250px", height: "31px" }}
+                    <br /><input className="form-control border-2 border-secondary rounded" style={{ width: "250px", height: "31px" }}
                         id="quantity"
                         lastname="quantity"
-                        type="text"
+                        type="number"
                         value={quantity}
-                        onChange={e => setQuantity(e.target.value)}
+                        onChange={event => setQuantity(event.target.value)}
                         required
                     />
                     <div className="mt-2">
-                        <button className="btn btn-primary" type="submit">Submit</button>
+                        <button className="btn btn-secondary" type="submit">Submit</button>
                     </div>
             </form>
 

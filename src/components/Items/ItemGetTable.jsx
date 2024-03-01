@@ -5,7 +5,7 @@ import ItemDelete from "./ItemDelete";
 import ItemEdit from "./ItemEdit";
 
 
-function ItemGet(props) {
+function ItemGetTable(props) {
 
     const [items, setItems] = useState([]);
 
@@ -31,6 +31,10 @@ function ItemGet(props) {
             />
         )
     }
+
+    return (
+        <div>
+            <br />
             <table className="table table-bordered">
                 <thead className="table-dark">
                     <tr>  
@@ -41,15 +45,12 @@ function ItemGet(props) {
                     </tr>
                 </thead>
                 <tbody className="table-group-divider">         
-
+                   {itemComponents}  
                 </tbody>
             </table>
-    return (
-        <div>
-            <br />
-                   {itemComponents}  
+
         </div>
     );
 }
 
-export default ItemGet;
+export default ItemGetTable;

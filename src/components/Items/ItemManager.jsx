@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
-import ItemCreate from "./ItemCreate";
-import ItemGet from "./ItemGet";
+
 
 function ItemManager(props) {
     
@@ -17,7 +16,7 @@ function ItemManager(props) {
     ItemManager.propTypes = {
         id: PropTypes.number,
         name: PropTypes.string,
-        price: PropTypes.string,
-        quantity: PropTypes.string,
+        price: PropTypes.number,
+        quantity: PropTypes.number,
     }
 export default ItemManager;
