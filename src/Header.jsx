@@ -11,10 +11,11 @@ function Header() {
     const [{ basket }, dispatch] = useStateValue();
 
     return (
-        <div className="header">
-            <img className="header_logo" src="https://pbs.twimg.com/media/ERfup7wWsAArWMk?format=jpg&name=small" />
+        // <div className="header">
+        <div>
+            {/* <img className="header_logo" src="https://pbs.twimg.com/media/ERfup7wWsAArWMk?format=jpg&name=small" /> */}
 
-            <div className="header_search">
+            {/* <div className="header_search">
                 <input className="header_searchInput" type="text"></input>
                 <SearchIcon className="header_searchIcon" />
 
@@ -46,7 +47,7 @@ function Header() {
                 </Link>
 
 
-            </div>
+            </div> */}
 
         </div>
     )

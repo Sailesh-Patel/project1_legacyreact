@@ -50,6 +50,27 @@ body {
 }
 
 
+
+.header_option {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    margin-right: 10px;
+    color: white;
+}
+
+.header_optionBasket {
+    display: flex;
+    align-items: center;
+    color:white;
+}
+
+.header_basketCount {
+    margin-left: 10px;
+    margin-right: 10px;
+    color: white;
+}
+
 .nav li.active {
     background-color: #555;
 }
@@ -57,4 +78,3 @@ body {
 .nav li.hover {
     background-color: #777;
 }
-

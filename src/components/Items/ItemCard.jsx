@@ -36,10 +36,24 @@ displayItems.push(
 
                 <div className='card_text'>
 
-                    <p className='card_name'> <b>Name:</b> {item.name}</p>
-                    <p><b>Price:</b> {item.price}</p>
-                    <p><b>Quantity:</b> {item.Quantity}</p>
                     <p className='card_image'><b></b><img width="200px" src={item.image}></img></p>
+                    <p className='card_name'> <b>Name:</b> {item.name}</p>
+                    <p><b>Price:</b> </p>
+                    <p><b>Quantity:</b> {item.Quantity}</p>
+                    
+                    <div className="product_price_quantity">
+                    <div className="product_price">
+                        <small>£</small>
+                        <strong>{item.price}</strong>
+                        <div className="buttons">
+                            <i class="bi bi-dash-lg"></i>
+                            <div className="quantity">0</div>
+                            <i class="bi bi-plus-lg"></i>
+
+                        </div>
+
+                    </div>
+                </div>
 
                     
                    

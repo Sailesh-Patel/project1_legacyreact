@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import './Login.css';
-import { Link } from "react-router-dom";
+import SearchIcon from '@mui/icons-material/Search';
+import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
+import { Link } from 'react-router-dom';
+import { useStateValue } from '../StateProvider';
 
 function Login() {
 
@@ -19,9 +22,9 @@ const register = e => {
 
     return (
         <div className="login">
-            <Link to='/'>
+            {/* <Link to='/'>
                 <img className="login_logo" src="https://pbs.twimg.com/media/ERfup7wWsAArWMk?format=jpg&name=small"></img>
-            </Link>
+            </Link> */}
 
 <div className='login_container'>
 <h1>Sign-in</h1>

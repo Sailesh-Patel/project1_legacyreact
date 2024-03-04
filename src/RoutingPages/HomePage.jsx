@@ -6,7 +6,7 @@ function HomePage() {
         <div className="Home">
 
             <Header />
-            <h1 className="Home-header">Welcome to The Grid</h1>
+            <h1 className="Home-header"></h1>
             <Home />
         </div>
     );
