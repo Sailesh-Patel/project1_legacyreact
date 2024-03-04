@@ -21,6 +21,13 @@ body {
     padding: 0 1rem;
 }
 
+.site_logo {
+    width: 100px;
+    object-fit: contain;
+    margin: 0 20px;
+    margin-top: 18px;
+}
+
 .site-title {
     font-size: 2rem;
 }

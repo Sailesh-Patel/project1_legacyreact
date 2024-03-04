@@ -4,7 +4,11 @@ export default function Routing() {
 
     return (
         <nav className="nav">
-            <Link to="/" className="site-title">Site Name</Link>
+            <Link to="/" className="site-title">
+                <img className="site_logo" src="https://pbs.twimg.com/media/ERfup7wWsAArWMk?format=jpg&name=small" />
+                ENCOM INTERNATIONAL
+            </Link>
+
             <ul>
                 <CustomerLink to="/ItemsPage">Items</CustomerLink>
                 <CustomerLink to="/CartPage">Cart</CustomerLink>

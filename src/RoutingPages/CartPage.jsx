@@ -1,9 +1,38 @@
+import Subtotal from "../Subtotal";
+import CartItem from "../components/Items/CartItem";
+import "./CartPage.css";
+import { useStateValue } from "../StateProvider";
+import React from "react"
+
 function CartPage() {
-    return ( 
-        <div>
-            <h1>Cart</h1>
+const [{basket}, dispatch] = useStateValue();
+
+    return (
+        <div className="cartPage">
+            <div className="cartPage_left">
+                <div>
+                    <h2 className="cartPage_title">Your Shopping Basket</h2>
+
+{basket.map(item => (
+    <CartItem
+    id={item.id}
+    name={item.name}
+    price={item.price}
+    quantity={item.quantity}
+    image={item.image}
+    />
+))}
+
+
+                </div>
+            </div>
+            <div className="cartPage_right">
+                <Subtotal />
+
+            </div>
+
         </div>
-     );
+    );
 }
 
 export default CartPage;

@@ -3,10 +3,13 @@ import { useState, useEffect } from "react";
 import ItemManager from "./ItemManager";
 import ItemDelete from "./ItemDelete";
 import ItemEdit from "./ItemEdit";
+import {Link } from "react-router-dom"
 
 
 function ItemGet(props) {
-
+    const [name, setName] = useState("")
+    const [price, setPrice] = useState("")
+    const [quantity, setQuantity] = useState("")
     const [items, setItems] = useState([]);
 
 
@@ -31,24 +34,46 @@ function ItemGet(props) {
             />
         )
     }
-            <table className="table table-bordered">
-                <thead className="table-dark">
-                    <tr>  
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Price</th>
-                        <th>Quantity</th>
-                    </tr>
-                </thead>
-                <tbody className="table-group-divider">         
 
-                </tbody>
-            </table>
     return (
         <div>
-            <br />
-                   {itemComponents}  
-        </div>
+            <div>
+                <br />
+
+                <table className="table table-bordered">
+                    <thead className="table-dark">
+                        <tr>
+
+                            <th scope="col">Name</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Update</th>
+                            <th scope="col">Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody className="table-group-divider">
+
+                        {
+                            items.map((item, index) => (
+                                <tr>
+                                    <td>{item.name}</td>
+                                    <td>{item.price}</td>
+                                    <td>{item.quantity}</td>
+                                    <td> <Link className="btn btn-primary" type="submit" to={`/ItemEdit/${item.id}`}>Update</Link> </td>
+                                    <td> <button onClick={() => ItemDelete} className="btn btn-danger btn-sm">Delete</button> </td>
+                                </tr>
+                            ))
+                        }
+
+                        {/* <tr>
+                        {itemComponents}
+</tr> */}
+
+                    </tbody>
+                </table>
+            </div>
+        </div >
+
     );
 }
 
