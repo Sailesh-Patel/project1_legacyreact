@@ -1,6 +1,6 @@
-import Subtotal from "../Subtotal";
-import CartItem from "../components/Items/CartItem";
-import "./CartPage.css";
+import Subtotal from "../components/Cart/Subtotal";
+import CartItem from "../components/Cart/CartItem";
+import "../components/Cart/CartItem.css";
 import { useStateValue } from "../StateProvider";
 import React from "react"
 

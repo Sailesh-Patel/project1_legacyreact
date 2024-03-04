@@ -1,14 +1,14 @@
 import './App.css';
 import { Routes, Route, Router, Link } from "react-router-dom"
 import 'bootstrap/dist/css/bootstrap.css';
-import Routing from './Routing';
-import HomePage from './RoutingPages/HomePage';
+import Routing from './Routing/Routing';
+import HomePage from './Routing/HomePage';
 
-import CartPage from './RoutingPages/CartPage';
-import ItemsPage from './RoutingPages/ItemsPage';
+import CartPage from './Routing/CartPage';
+import ItemsPage from './Routing/ItemsPage';
 import ItemEdit from './components/Items/ItemEdit';
-import Header from './Header';
-import Login from './components/Login';
+import Header from './Routing/Header';
+import Login from './components/Login/Login';
 
 
 

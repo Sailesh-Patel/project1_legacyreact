@@ -1,4 +1,4 @@
-import Header from "../Header";
+import Header from "./Header";
 import Home from "../Home";
 
 function HomePage() {
