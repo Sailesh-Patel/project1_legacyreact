@@ -49,7 +49,6 @@ function ItemGet(props) {
                             <th scope="col">Name</th>
                             <th scope="col">Price</th>
                             <th scope="col">Quantity</th>
-                            <th scope="col">Image</th>
                             <th scope="col">Update</th>
                             <th scope="col">Delete</th>
                         </tr>
@@ -62,17 +61,13 @@ function ItemGet(props) {
                                     <td>{item.name}</td>
                                     <td>{item.price}</td>
                                     <td>{item.quantity}</td>
-                                    <td>{item.image}</td>
                                     <td> <Link className="btn btn-primary" type="submit" to={`/ItemEdit/${item.id}`}>Update</Link> </td>
                                     <td> <button onClick={() => ItemDelete} className="btn btn-danger btn-sm">Delete</button> </td>
                                 </tr>
                             ))
                         }
 
-<div>
-
-    
-</div>
+<div></div>
                         {/* <tr>
                         {itemComponents}
 </tr> */}

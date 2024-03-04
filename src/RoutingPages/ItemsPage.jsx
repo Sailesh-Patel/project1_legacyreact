@@ -1,5 +1,6 @@
 import ItemGet from '../components/Items/ItemGet'
 import ItemCreate from '../components/Items/ItemCreate'
+import ItemCard from '../components/Items/ItemCard';
 
 function ItemsPage() {
     return ( 
@@ -7,6 +8,7 @@ function ItemsPage() {
             <h1>Items</h1>
             <ItemCreate />
             <ItemGet />
+            <ItemCard />
 
         </div>
      );

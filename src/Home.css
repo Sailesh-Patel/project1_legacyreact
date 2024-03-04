@@ -7,10 +7,14 @@ max-width: 1500px;
 }
 
 .home_row {
-    display: flex;
+    /* display: flex;
     z-index: 1;
     margin-left: 5px;
-    margin-right: 5px;
+    margin-right: 5px; */
+display: grid;
+grid-template-columns: repeat(4, 233px);
+border-color: black;
+
 }
 
 .home_image {

@@ -8,6 +8,8 @@ function ItemManager(props) {
             <td>{props.name}</td>
             <td>{props.price}</td>
             <td>{props.quantity}</td>
+            <td>{props.image}</td>
+
         </tr>
     );
     }
@@ -17,5 +19,6 @@ function ItemManager(props) {
         price: PropTypes.number,
         quantity: PropTypes.number,
         image: PropTypes.string,
+        id: PropTypes.number
     }
 export default ItemManager;
