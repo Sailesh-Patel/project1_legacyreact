@@ -16,5 +16,6 @@ function ItemManager(props) {
         name: PropTypes.string,
         price: PropTypes.number,
         quantity: PropTypes.number,
+        image: PropTypes.string,
     }
 export default ItemManager;
