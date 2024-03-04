@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import ItemManager from "./ItemManager";
 import ItemDelete from "./ItemDelete";
 import ItemEdit from "./ItemEdit";
-import {Link } from "react-router-dom"
+import {Link, Navigate } from "react-router-dom"
 
 
 function ItemGet(props) {
@@ -13,13 +13,13 @@ function ItemGet(props) {
     const [items, setItems] = useState([]);
 
 
-    useEffect(function getItems() {
+    function getItems() {
 
         axios.get("http://localhost:8081/item/get")
             .then((response) => setItems(response.data))
             .catch((error) => console.log(error))
-    }, []);
-
+    }
+    useEffect(getItems,[]);
 
     const itemComponents = []
 
@@ -64,15 +64,15 @@ function ItemGet(props) {
                                     <td> <Link className="btn btn-primary" type="submit" to={`/Item/update/${item.id}`}>Update</Link> </td>
                                     <td><button type="button" className="btn btn-danger" onClick={() => {
                 axios.delete("http://localhost:8081/item/delete/" + item.id)
-                    .then(res => {
+                    .then(res => { getItems()
 
 
-                        axios.get("http://localhost:8081/item/get/")
-                            .then(response => {
-                                setItems(response.data)
-                                console.log(response);
-                            })
-                            .catch(err => console.error(err))
+                        // axios.get("http://localhost:8081/item/get/")
+                        //     .then(response => {
+                        //         setItems(response.data)
+                        //         console.log(response);
+                        //     })
+                        //     .catch(err => console.error(err))
                 
                     })
                     .catch(err => console.error(err));
