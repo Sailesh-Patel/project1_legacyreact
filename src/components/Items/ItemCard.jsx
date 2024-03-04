@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import './ItemCard.css';
 
 
@@ -11,8 +11,8 @@ function ItemCard() {
 
 
 
-    function handleClick() {
 
+function getCard() {
 
         axios.get("http://localhost:8081/item/get")
             .then(response => {
@@ -20,8 +20,9 @@ function ItemCard() {
                 console.log(response);
             })
             .catch(err => console.error(err))
+        }
+        useEffect(getCard,[]);
 
-    };
 
 
     const displayItems = [];
@@ -38,11 +39,11 @@ displayItems.push(
                     <p className='card_name'> <b>Name:</b> {item.name}</p>
                     <p><b>Price:</b> {item.price}</p>
                     <p><b>Quantity:</b> {item.Quantity}</p>
-                    <p className='card_image'><b></b><img width="200" src={item.image}></img></p>
+                    <p className='card_image'><b></b><img width="200px" src={item.image}></img></p>
 
                     
                    
-                    <p><button type="button" className="btn btn-danger" onClick={() => {
+                    {/* <p><button type="button" className="btn btn-danger" onClick={() => {
                 axios.delete("http://localhost:8081/item/delete/" + item.id)
                     .then(res => {
 
@@ -55,8 +56,9 @@ displayItems.push(
                             .catch(err => console.error(err))
                 
                     })
-                    .catch(err => console.error(err));
-            }}>DELETE</button></p>
+                    .catch(err => console.error(err))
+                    
+            }}>DELETE</button></p> */}
 
                 </div>
             </div>
@@ -71,7 +73,7 @@ displayItems.push(
   return (
     <>
     <br />
-        <button className="btn btn-primary btn-lg " onClick={handleClick}>Display all Items</button>
+        {/* <button className="btn btn-primary btn-lg " onClick={handleClick}>Display all Items</button> */}
         <div  className='container'>
             <div className='row'>
             

@@ -16,19 +16,22 @@ function ItemEdit(props) {
 
     useEffect(function getItems() {
 
-        axios.get(`http://localhost:8081/item/create/${id}`)
-            .then((response) => setItems(response.data))
-            .catch((error) => console.log(error))
+        axios.get("http://localhost:8081/item/get/" + params.id)
+            .then((response) => {
+                console.log(response.data);
+                setName(response.data.name);
+                setPrice(response.data.price);
+                setQuantity(response.data.quantity);
+            })
+            .catch((error) => console.log(error));
     }, []);
 
     function editItem() {
 
-        axios.patch(`http://localhost:8081/item/update/${id}`,
+        axios.patch("http://localhost:8081/item/update/" + params.id,
         { name, price, quantity })
-        .then(response => {console.log(response);
-        setName("");
-        setPrice("");
-        setQuantity();
+        .then(() => {
+        navigate(-1);
         }).catch(err => console.error(err))
 }
 
@@ -63,6 +66,7 @@ function ItemEdit(props) {
                         onChange={event => setQuantity(event.target.value)}
                         required
                     />
+                    
                     <div className="mt-2">
                         <button className="btn btn-secondary" type="submit">Submit</button>
                     </div>

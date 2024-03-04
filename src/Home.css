@@ -12,7 +12,7 @@ max-width: 1500px;
     margin-left: 5px;
     margin-right: 5px; */
 display: grid;
-grid-template-columns: repeat(4, 233px);
+grid-template-columns: repeat(4,);
 border-color: black;
 
 }
