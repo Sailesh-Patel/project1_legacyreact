@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import "./routing.css"
+import "../src/Routing/Routing.css"
 import { BrowserRouter } from 'react-router-dom';
 import reducer, { initialState } from './reducer';
 import { StateProvider } from './StateProvider';
