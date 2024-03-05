@@ -31,7 +31,7 @@ function ItemEdit(props) {
     function editItem() {
 
         axios.patch("http://localhost:8081/item/update/" + params.id,
-        { name, price, quantity })
+        { name, price, quantity, image })
         .then(() => {
         navigate(-1);
         }).catch(err => console.error(err))
@@ -43,7 +43,6 @@ function ItemEdit(props) {
                      <label htmlFor="Name">Name</label>
                     <br /><input className="form-control border-2 border-secondary rounded" style={{ width: "250px", height: "31px" }}
                         id="Name"
-                        firstname="name"
                         type="text"
                         value={name}
                         onChange={event => setName(event.target.value)}
@@ -52,7 +51,6 @@ function ItemEdit(props) {
                     <br /><label htmlFor="price">Price</label>
                     <br /><input className="form-control border-2 border-secondary rounded" style={{ width: "250px", height: "31px" }}
                         id="price"
-                        lastname="price"
                         type="double"
                         value={price}
                         onChange={event => setPrice(event.target.value)}
@@ -62,14 +60,13 @@ function ItemEdit(props) {
                     <br /><label htmlFor="quantity">Quantity</label>
                     <br /><input className="form-control border-2 border-secondary rounded" style={{ width: "250px", height: "31px" }}
                         id="quantity"
-                        lastname="quantity"
                         type="number"
                         value={quantity}
                         onChange={event => setQuantity(event.target.value)}
                         required
                     />
                     
-                    <br /><label className="form-label" htmlFor="image">Image</label>
+                    <br /><label htmlFor="image">Image</label>
                     <br /><input className="form-control border-2 border-secondary rounded" style={{ width: "250px", height: "31px" }}
                         size=""
                         id="image"
@@ -77,7 +74,6 @@ function ItemEdit(props) {
                         value={image}
                         onChange={event => setImage(event.target.value)}
                         required
-                        placeholder="Enter Image URL"
                     />     
                     
                     <div className="mt-2">

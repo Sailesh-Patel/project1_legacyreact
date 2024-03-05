@@ -6,38 +6,45 @@ import './ItemCard.css';
 import ItemManager from './ItemManager';
 import { useNavigate, useParams } from "react-router-dom";
 import "bootstrap-icons/font/bootstrap-icons.css";
+import addToCart from '../Cart/AddToCart';
 
 
 function ItemCard(props) {
-
+    const [id, setId] = useState("")
+    const [name, setName] = useState("")
+    const [price, setPrice] = useState("")
+    const [image, setImage] = useState("")
     const [items, setItems] = useState("");
     const [count, setCount] = useState(0);
+    const navigate = useNavigate();
     const params = useParams();
-
-    // const [{ basket }, dispatch] = useStateValue();
-    // console.log("basket:", basket)
-
-
-    function addToBasket() {
-
-    }
-
     const [quantity, setQuantity] = useState(0);
 
+    const [{ basket }, dispatch] = useStateValue();
+    console.log("basket:", basket)
 
-    const incrementQuantity = () => {
-        setQuantity(quantity + 1);
-    }
+    // const incrementQuantity = () => {
+    //     setQuantity(quantity + 1);
+    // }
 
-    const decrementQuantity = () => {
-        setQuantity(quantity - 1);
-    }
+    // const decrementQuantity = () => {
+    //     setQuantity(quantity - 1);
+    // }
+
+function addToBasket () {
+
+}
 
     function getCard() {
 
         axios.get("http://localhost:8081/item/get")
             .then(response => {
                 setItems(response.data)
+                setName(response.data.name);
+                setPrice(response.data.price);
+                setQuantity(response.data.quantity);
+                setImage(response.data.image);
+
                 console.log(response);
             })
             .catch(err => console.error(err))
@@ -64,7 +71,7 @@ function ItemCard(props) {
                             <div className="product_price_quantity">
                                 <div className="product_price">
                                     <div className="buttons">
-                                        <i onClick={decrementQuantity}  className="decrement" class="bi bi-dash-lg"></i>
+                                        <i onClick={() => setQuantity(quantity - 1)}  className="decrement" class="bi bi-dash-lg"></i>
                                         <div id="quantityChange" className="quantity">{quantity}</div>
                                         <i onClick={() => setQuantity(quantity + 1)} className="increment" class="bi bi-plus-lg"></i>
 
@@ -77,22 +84,7 @@ function ItemCard(props) {
 
 
 
-                            {/* <p><button type="button" className="btn btn-danger" onClick={() => {
-                axios.delete("http://localhost:8081/item/delete/" + item.id)
-                    .then(res => {
 
-
-                        axios.get("http://localhost:8081/item/get")
-                            .then(response => {
-                                setItems(response.data)
-                                console.log(response);
-                            })
-                            .catch(err => console.error(err))
-                
-                    })
-                    .catch(err => console.error(err))
-                    
-            }}>DELETE</button></p> */}
 
                         </div>
                     </div>
@@ -106,20 +98,12 @@ function ItemCard(props) {
 
 
 
-    let increment = (id) => {
-        console.log(id);
-    }
-    let decrement = (id) => {
-        console.log(id);
-    }
-    let update = () => { }
 
 
     return (
 
             <>
                 <br />
-                {/* <button className="btn btn-primary btn-lg " onClick={handleClick}>Display all Items</button> */}
                 <div className='container'>
                     <div className='row'>
 
