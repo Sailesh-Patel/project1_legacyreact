@@ -61,24 +61,12 @@ function ItemCard(props) {
                             <p className='card_name'> <b>Name:</b> {item.name}</p>
                             <p><b>Quantity:</b> {item.Quantity}</p>
 
- 
-                            <div>
-                    {/* <p>{quantity}</p> */}
-                    {/* <button onClick={decrementQuantity} >Decrement</button>
-                    <button onClick={incrementQuantity}>Increment</button> */}
-
-                    {/* <i onClick={decrementQuantity} className="decrement" class="bi bi-dash-lg"></i> */}
-                    {/* <p>{quantity}</p> */}
-{/* <i onClick={incrementQuantity}  className="decrement" class="bi bi-dash-lg"></i> */}
-
-                </div>
-
                             <div className="product_price_quantity">
                                 <div className="product_price">
                                     <div className="buttons">
                                         <i onClick={decrementQuantity}  className="decrement" class="bi bi-dash-lg"></i>
                                         <div id="quantityChange" className="quantity">{quantity}</div>
-                                        <i onClick={incrementQuantity} className="increment" class="bi bi-plus-lg"></i>
+                                        <i onClick={() => setQuantity(quantity + 1)} className="increment" class="bi bi-plus-lg"></i>
 
                                         <small>£</small>
                                         <strong>{item.price}</strong>
