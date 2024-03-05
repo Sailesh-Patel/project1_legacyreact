@@ -4,24 +4,35 @@ import { useStateValue } from "../../StateProvider";
 import { useState, useEffect } from "react";
 import './ItemCard.css';
 import ItemManager from './ItemManager';
-
+import { useNavigate, useParams } from "react-router-dom";
+import "bootstrap-icons/font/bootstrap-icons.css";
 
 
 function ItemCard(props) {
 
     const [items, setItems] = useState("");
-    let [count, setCount] = useState(0);
+    const [count, setCount] = useState(0);
+    const params = useParams();
 
-    const [{ basket }, dispatch] = useStateValue();
-    console.log("basket:", basket)
-
-   
-   function addToBasket() {
-
-}
+    // const [{ basket }, dispatch] = useStateValue();
+    // console.log("basket:", basket)
 
 
-    
+    function addToBasket() {
+
+    }
+
+    const [quantity, setQuantity] = useState(0);
+
+
+    const incrementQuantity = () => {
+        setQuantity(quantity + 1);
+    }
+
+    const decrementQuantity = () => {
+        setQuantity(quantity - 1);
+    }
+
     function getCard() {
 
         axios.get("http://localhost:8081/item/get")
@@ -50,12 +61,24 @@ function ItemCard(props) {
                             <p className='card_name'> <b>Name:</b> {item.name}</p>
                             <p><b>Quantity:</b> {item.Quantity}</p>
 
+ 
+                            <div>
+                    {/* <p>{quantity}</p> */}
+                    {/* <button onClick={decrementQuantity} >Decrement</button>
+                    <button onClick={incrementQuantity}>Increment</button> */}
+
+                    {/* <i onClick={decrementQuantity} className="decrement" class="bi bi-dash-lg"></i> */}
+                    {/* <p>{quantity}</p> */}
+{/* <i onClick={incrementQuantity}  className="decrement" class="bi bi-dash-lg"></i> */}
+
+                </div>
+
                             <div className="product_price_quantity">
                                 <div className="product_price">
                                     <div className="buttons">
-                                        <i onClick={() => setCount(count - 1)} className="decrement" class="bi bi-dash-lg"></i>
-                                        <div id="quantityChange" className="quantity">1</div>
-                                        <i onClick={() => setCount(count + 1)} className="increment" class="bi bi-plus-lg"></i>
+                                        <i onClick={decrementQuantity}  className="decrement" class="bi bi-dash-lg"></i>
+                                        <div id="quantityChange" className="quantity">{quantity}</div>
+                                        <i onClick={incrementQuantity} className="increment" class="bi bi-plus-lg"></i>
 
                                         <small>£</small>
                                         <strong>{item.price}</strong>
@@ -91,6 +114,10 @@ function ItemCard(props) {
 
         )
 
+
+
+
+
     let increment = (id) => {
         console.log(id);
     }
@@ -101,17 +128,20 @@ function ItemCard(props) {
 
 
     return (
-        <>
-            <br />
-            {/* <button className="btn btn-primary btn-lg " onClick={handleClick}>Display all Items</button> */}
-            <div className='container'>
-                <div className='row'>
 
-                    {displayItems}
+            <>
+                <br />
+                {/* <button className="btn btn-primary btn-lg " onClick={handleClick}>Display all Items</button> */}
+                <div className='container'>
+                    <div className='row'>
+
+                        {displayItems}
+                    </div>
                 </div>
-            </div>
-        </>
-    );
+            </>
+    
+
+            );
 }
 
-export default ItemCard
+            export default ItemCard
