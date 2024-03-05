@@ -15,24 +15,36 @@ function ItemCard(props) {
     const [price, setPrice] = useState("")
     const [image, setImage] = useState("")
     const [items, setItems] = useState("");
-    const [count, setCount] = useState(0);
     const navigate = useNavigate();
     const params = useParams();
+
+
+    const [count, setCount] = useState(0);
     const [quantity, setQuantity] = useState(0);
+
+    const incrementQuantity = () => {
+        setQuantity(quantity + 1);
+    }
+
+    const decrementQuantity = () => {
+        setQuantity(quantity - 1);
+    }
+
 
     const [{ basket }, dispatch] = useStateValue();
     console.log("basket:", basket)
-
-    // const incrementQuantity = () => {
-    //     setQuantity(quantity + 1);
-    // }
-
-    // const decrementQuantity = () => {
-    //     setQuantity(quantity - 1);
-    // }
-
 function addToBasket () {
-
+    dispatch({
+        type: "ADD_TO_BASKET",
+        item: {
+            key: id + "" + name,
+            id: id,
+            name: name,
+            price: price,
+            quantity: quantity,
+            image: image,
+        },
+    });
 }
 
     function getCard() {
@@ -40,11 +52,11 @@ function addToBasket () {
         axios.get("http://localhost:8081/item/get")
             .then(response => {
                 setItems(response.data)
-                setName(response.data.name);
-                setPrice(response.data.price);
-                setQuantity(response.data.quantity);
-                setImage(response.data.image);
-
+                // setName(response.data.name);
+                // setPrice(response.data.price);
+                // setQuantity(response.data.quantity);
+                // setImage(response.data.image);
+                
                 console.log(response);
             })
             .catch(err => console.error(err))
@@ -71,6 +83,9 @@ function addToBasket () {
                             <div className="product_price_quantity">
                                 <div className="product_price">
                                     <div className="buttons">
+                                    {/* <i onClick={() => setCount(count - 1)} className="decrement" class="bi bi-dash-lg"></i>
+                                        <div id="quantityChange" className="quantity">1</div>
+                                        <i onClick={() => setCount(count + 1)} className="increment" class="bi bi-plus-lg"></i> */}
                                         <i onClick={() => setQuantity(quantity - 1)}  className="decrement" class="bi bi-dash-lg"></i>
                                         <div id="quantityChange" className="quantity">{quantity}</div>
                                         <i onClick={() => setQuantity(quantity + 1)} className="increment" class="bi bi-plus-lg"></i>
