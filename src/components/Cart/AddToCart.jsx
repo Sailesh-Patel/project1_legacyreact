@@ -15,9 +15,9 @@ function AddToCart(props) {
     const params = useParams();
     const [items, setItems] = useState("")
 
-    useEffect(function getItems() {
+    function getItems() {
 
-        axios.get("http://localhost:8081/item/get/")
+        axios.get("http://localhost:8081/item/get/" + props.id)
             .then((response) => {
                 console.log(response.data);
                 setName(response.data.name);
@@ -26,12 +26,12 @@ function AddToCart(props) {
                 setImage(response.data.image);
             })
             .catch((error) => console.log(error));
-    }, []);
+    }
 
 
 
   return (
-<div></div>
+<button onClick={getItems}>Add to Basket</button>
 )
 }
 

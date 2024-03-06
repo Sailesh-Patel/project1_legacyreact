@@ -7,6 +7,7 @@ import ItemManager from './ItemManager';
 import { useNavigate, useParams } from "react-router-dom";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import addToCart from '../Cart/AddToCart';
+import AddToCart from '../Cart/AddToCart';
 
 
 function ItemCard(props) {
@@ -78,7 +79,7 @@ function addToBasket () {
                                         <small>£</small>
                                         <strong>{item.price}</strong>
                                     </div>
-                                    <button onClick={addToBasket}>Add to Basket</button>
+<AddToCart id={item.id}/>
                                 </div>
                             </div>
 
