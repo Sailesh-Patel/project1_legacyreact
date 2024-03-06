@@ -1,6 +1,6 @@
 import React from 'react'
 import "./Home.css";
-// import Product from './components/';
+import Product from './components/Product';
 import ItemCard from './components/Items/ItemCard';
 
 function Home(props) {
@@ -16,7 +16,7 @@ function Home(props) {
         <div className="home_row">
         {/* <Product id="111" name='Phone' price={100.00} quantity={10} image='https://images.bauerhosting.com/affiliates/sites/8/2020/05/smartphones-2023-.png?ar=16%3A9&fit=crop&crop=top&auto=format&w=1440&q=80' /> */}
 
-        {/* <Product id="111" name='Phone' price={100.00} quantity={7} image='https://images.bauerhosting.com/affiliates/sites/8/2020/05/smartphones-2023-.png?ar=16%3A9&fit=crop&crop=top&auto=format&w=1440&q=80' /> */}
+        <Product id="111" name='Phone' price={100.00} quantity={7} image='https://images.bauerhosting.com/affiliates/sites/8/2020/05/smartphones-2023-.png?ar=16%3A9&fit=crop&crop=top&auto=format&w=1440&q=80' />
 
 <ItemCard />
 

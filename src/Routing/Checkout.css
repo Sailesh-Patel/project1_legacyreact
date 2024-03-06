@@ -1,20 +1,17 @@
-.cartPage {
+.checkout {
     display: flex;
     padding: 20px;
     background-color: white;
     height: max-content;
-}
-
-.cartPage_title {
+  }
+  
+  .checkout__ad {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  .checkout__title {
     margin-right: 10px;
     padding: 10px;
     border-bottom: 1px solid lightgray;
-}
-
-.cartPage_Checkout {
-    text-decoration: none;
-    color: black;
-    border-radius: 2px;
-    border: 1px solid;
-    
-}
+  }

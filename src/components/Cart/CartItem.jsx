@@ -15,11 +15,14 @@ function CartItem({ id, image, name, price, quantity }) {
 
  const updateBasket = () => {
 
+  
  }
- 
+
+
+
  
   return (
-    <div className='cartItem'>
+    <div className='cartItem'>{id}
       <img className='cartItem_image' src={image}></img>
       <div className='cartItem_info'>
         <p className='cartItem_name'>{name}</p>
@@ -28,10 +31,10 @@ function CartItem({ id, image, name, price, quantity }) {
           <strong>{price}</strong>
         </p>
 
-        <div className='cartItem_quantity'>
-          {Array(quantity).fill().map((_, i) => (
+        <div className='cartItem_quantity'>{quantity}
+          {/* {Array(quantity).fill().map((_, i) => (
             <p>1</p>
-          ))}
+          ))} */}
         </div>
         <button onClick={updateBasket}>Update</button>
         <button onClick={removeFromBasket}>Delete</button>

@@ -10,6 +10,7 @@ import addToCart from '../Cart/AddToCart';
 
 
 function ItemCard(props) {
+
     const [id, setId] = useState("")
     const [name, setName] = useState("")
     const [price, setPrice] = useState("")
@@ -17,6 +18,27 @@ function ItemCard(props) {
     const [items, setItems] = useState("");
     const navigate = useNavigate();
     const params = useParams();
+
+
+
+
+    const [{basket} , dispatch] = useStateValue();
+    console.log("basket:", basket)
+
+    const addToBasket = () => {
+    dispatch({
+        type: 'ADD_TO_BASKET',
+        item: {
+            key: id + "" + name,
+            id: id,
+            name: name,
+            price: price,
+            quantity: quantity,
+            image: image,
+        },
+    });
+}
+
 
 
     const [count, setCount] = useState(0);
@@ -30,22 +52,6 @@ function ItemCard(props) {
         setQuantity(quantity - 1);
     }
 
-
-    const [{ basket }, dispatch] = useStateValue();
-    console.log("basket:", basket)
-function addToBasket () {
-    dispatch({
-        type: "ADD_TO_BASKET",
-        item: {
-            key: id + "" + name,
-            id: id,
-            name: name,
-            price: price,
-            quantity: quantity,
-            image: image,
-        },
-    });
-}
 
     function getCard() {
 
@@ -70,13 +76,15 @@ function addToBasket () {
     for (const item of items)
 
         displayItems.push(
-            <div className='col-4' key={item.id} >
-                <div className='card'>
+            <div className='col-4' key={item.id + "" + item.name} >
+                <div className='card' id={item.id}>
                     <div className='card_body'>
 
                         <div className='card_text'>
 
-                            <p className='card_image'><b></b><img width="200px" src={item.image} alt=""></img></p>
+                            <p className='card_image'><b></b><img
+                            id="image"
+                            width="200px" src={item.image} alt=""></img></p>
                             <p className='card_name'> <b>Name:</b> {item.name}</p>
                             <p><b>Quantity:</b> {item.Quantity}</p>
 

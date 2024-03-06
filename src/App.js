@@ -9,6 +9,7 @@ import ItemsPage from './Routing/ItemsPage';
 import ItemEdit from './components/Items/ItemEdit';
 import Header from './Routing/Header';
 import Login from './components/Login/Login';
+import Checkout from './Routing/Checkout';
 
 
 
@@ -23,6 +24,7 @@ function App() {
 <Route path="/" element={<HomePage />}></Route>
 <Route path="/ItemsPage" element={<ItemsPage />}></Route>
 <Route path="/CartPage" element={<CartPage />}></Route>
+<Route path="/Checkout" element={<Checkout />}></Route>
 <Route path="/Item/update/:id" element={<ItemEdit />}></Route>
 
 </Routes>
