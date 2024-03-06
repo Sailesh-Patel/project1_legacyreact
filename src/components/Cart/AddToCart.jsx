@@ -26,14 +26,27 @@ function AddToCart(props) {
                 setImage(response.data.image);
             })
             .catch((error) => console.log(error));
-    }
+           // e.preventDefault()
+    
+        }
 
+    
+    setTimeout(() => {
+        axios.post("http://localhost:8081/cart/create/")
+            .then((response) => {
+                setName(response.data.name);
+                setPrice(response.data.price);
+                setQuantity(response.data.quantity);
+                setImage(response.data.image);
+            })
+            .catch(err => console.error(err));
+    }, 3000);
 
 
   return (
-<button onClick={getItems}>Add to Basket</button>
+<button class="btn btn-success" onClick={getItems}>Add to Basket</button>
 )
-}
 
+  }
 
 export default AddToCart
