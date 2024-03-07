@@ -1,3 +1,8 @@
+.card.body {
+    height: 10rem;
+}
+
+
 .card_imgage > img {
     max-height: 200px;
     width: 200px;
@@ -13,6 +18,7 @@
 
 .col-4 {
     padding: 15px;
+    min-height: fit-content;
 }
 
 .product_price_quantity {

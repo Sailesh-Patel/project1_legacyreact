@@ -73,7 +73,7 @@ function addToBasket () {
                                 <div className="product_price">
                                     <div className="buttons">
                                         <i onClick={() => setQuantity(quantity - 1)}  className="decrement" class="bi bi-dash-lg"></i>
-                                        <div id="quantityChange" className="quantity">{quantity}</div>
+                                        <div id="quantityChange" className="quantity">{item.quantity}</div>
                                         <i onClick={() => setQuantity(quantity + 1)} className="increment" class="bi bi-plus-lg"></i>
 
                                         <small>£</small>

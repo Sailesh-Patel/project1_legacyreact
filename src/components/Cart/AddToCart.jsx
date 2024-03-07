@@ -6,47 +6,58 @@ import ItemManager from '../Items/ItemManager';
 
 function AddToCart(props) {
 
-    const [id, setId] = useState("")
-    const [name, setName] = useState("")
-    const [price, setPrice] = useState("")
-    const [quantity, setQuantity] = useState("")
-    const [image, setImage] = useState("")
-    const navigate = useNavigate();
-    const params = useParams();
-    const [items, setItems] = useState("")
+  const [id, setId] = useState("")
+  const [name, setName] = useState("")
+  const [price, setPrice] = useState("")
+  const [quantity, setQuantity] = useState("")
+  const [image, setImage] = useState("")
+  const navigate = useNavigate();
+  const params = useParams();
+  const [items, setItems] = useState("")
 
-    function getItems() {
+  function getItems() {
 
-        axios.get("http://localhost:8081/item/get/" + props.id)
-            .then((response) => {
-                console.log(response.data);
-                setName(response.data.name);
-                setPrice(response.data.price);
-                setQuantity(response.data.quantity);
-                setImage(response.data.image);
-            })
-            .catch((error) => console.log(error));
-           // e.preventDefault()
-    
-        }
+    axios.get("http://localhost:8081/item/get/" + props.id)
+      .then((response) => {
+        console.log(response.data);
+        setName(response.data.name);
+        setPrice(response.data.price);
+        setQuantity(response.data.quantity);
+        setImage(response.data.image);
+      })
+      .catch((error) => console.log(error));
+    // e.preventDefault()
+  }
 
-    
-    setTimeout(() => {
-        axios.post("http://localhost:8081/cart/create/")
-            .then((response) => {
-                setName(response.data.name);
-                setPrice(response.data.price);
-                setQuantity(response.data.quantity);
-                setImage(response.data.image);
-            })
-            .catch(err => console.error(err));
-    }, 3000);
+    // const itemComponents = []
+
+    // for (const item of items) {
+    //   console.log("Items:", item);
+    //   itemComponents.push()
+    //   axios.post("http://localhost:8081/cart/create/",
+    //     { name, price, quantity, image })
+    //     .then((response) => {
+    //       console.log(response);
+    //       setName(response.data.name);
+    //       setPrice(response.data.price);
+    //       setQuantity(response.data.quantity);
+    //       setImage(response.data.image);
+    //     }).catch(err => console.error(err))
+    // }
+
+
 
 
   return (
-<button class="btn btn-success" onClick={getItems}>Add to Basket</button>
-)
 
-  }
+    // <form onSubmit={getItems}>
+
+      <div className="mt-2">
+        <button class="btn btn-success" onClick={getItems}>Add to Basket</button>
+
+      </div>
+    // </form>
+  )
+}
 
 export default AddToCart
