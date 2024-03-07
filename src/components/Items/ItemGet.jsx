@@ -27,7 +27,8 @@ function ItemGet(props) {
         console.log("Items:", props.item);
         itemComponents.push(
             <ItemManager
-                key={item.id}
+                key={item.id + "" + "" + item.name}
+                id={item.id}
                 name={item.name}
                 price={item.price}
                 quantity={item.quantity}

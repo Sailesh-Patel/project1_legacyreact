@@ -33,7 +33,7 @@ function Product({ id, name, price, image, quantity }) {
                         <div className="buttons">
 
                             <i class="bi bi-dash-lg"></i>
-                            <div className="product_quantity">0</div>
+                            <div className="product_quantity">1</div>
                             <i class="bi bi-plus-lg"></i>
                         <small>£</small>
                         <strong>{price}</strong>
