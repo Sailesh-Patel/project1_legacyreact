@@ -69,8 +69,8 @@ function addToBasket () {
                             <p className='card_name'> <b>Name:</b> {item.name}</p>
                             <p><b>Quantity:</b> {item.Quantity}</p>
 
-                            <div className="product_price_quantity">
-                                <div className="product_price">
+                            <div className="card_price_quantity">
+                                <div className="card_price">
                                     <div className="buttons">
                                         <i onClick={() => setQuantity(quantity - 1)}  className="decrement" class="bi bi-dash-lg"></i>
                                         <div id="quantityChange" className="quantity">{item.quantity}</div>
